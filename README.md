@@ -9,3 +9,7 @@ The project consists in a basic online shopping store written with web technolog
 - Anlin Liang
 - Angie Melissa Marin
 - Raja Soufi
+
+## Zalando API
+
+https://api.zalando.com/swagger/index.html
