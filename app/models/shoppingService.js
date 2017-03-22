@@ -50,7 +50,7 @@ shoppingApp.factory('ShoppingModel', function($resource, $cookieStore) {
     // TODO: Test implementation, might not work
     
     this.getRandomArticles = $resource('https://api.zalando.com/articles', {
-        page: parseInt(Math.random() * (ARTICLE_COUNT_ESTIMATION / parseInt('@resultsCount'))) + 1
+        page: parseInt(Math.random() * (ARTICLE_COUNT_ESTIMATION / parseInt('@pageSize'))) + 1
     }, {
         get: {}
     });
