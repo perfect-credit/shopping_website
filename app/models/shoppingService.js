@@ -49,17 +49,17 @@ shoppingApp.factory('ShoppingModel', function($resource, $cookieStore) {
     
     // TODO: Test implementation, might not work
     
-    this.getRandomArticles = $resource('https://api.zalando.com/articles', {
+    this.RandomArticles = $resource('https://api.zalando.com/articles', {
         page: parseInt(Math.random() * (ARTICLE_COUNT_ESTIMATION / parseInt('@pageSize'))) + 1
     }, {
         get: {}
     });
     
-    this.searchArticles = $resource('https://api.zalando.com/articles', {}, {
+    this.SearchArticles = $resource('https://api.zalando.com/articles', {}, {
         get: {}
     });
     
-    this.getArticle = $resource('https://api.zalando.com/articles/:id', {}, {
+    this.Article = $resource('https://api.zalando.com/articles/:id', {}, {
         get: {}
     });
     
