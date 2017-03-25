@@ -52,15 +52,27 @@ shoppingApp.factory('ShoppingModel', function($resource, $cookieStore) {
     // TODO: Test implementation, might not work
     
     this.RandomArticles = $resource('https://api.zalando.com/articles', {}, {
-        get: {}
+        get: {
+            headers: {
+                'Accept-Language': 'en-GB'
+            }
+        }
     });
     
     this.SearchArticles = $resource('https://api.zalando.com/articles', {}, {
-        get: {}
+        get: {
+            headers: {
+                'Accept-Language': 'en-GB'
+            }
+        }
     });
     
     this.Article = $resource('https://api.zalando.com/articles/:id', {}, {
-        get: {}
+        get: {
+            headers: {
+                'Accept-Language': 'en-GB'
+            }
+        }
     });
     
     return this;
