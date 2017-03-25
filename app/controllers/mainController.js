@@ -17,13 +17,23 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
     
     $scope.getRandomArticles= function(resultsCount){
         ShoppingModel.RandomArticles.get({
-            pageSize: resultsCount
+            pageSize: resultsCount,
+            page: parseInt(Math.random() * (ARTICLE_COUNT_ESTIMATION / parseInt(resultsCount))) + 1
         }, function(data){
             $scope.randomArticles = data.content;
         });
         
     };
      $scope.getCartSize = function(){
+         console.log(ShoppingModel.getShoppingCart().length);
          return ShoppingModel.getShoppingCart().length;
      };
+    
+    $scope.temp= function(id){
+        ShoppingModel.Article.get({id:id}, function(data){
+            $scope.searchResults.push(data);;
+        });
+    };
+    
+    
 });

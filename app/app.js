@@ -5,7 +5,7 @@ shoppingApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/home', {
-                templateUrl: '/views/partials/home.html',
+                templateUrl: '/app/views/partials/home.html',
                 controller: 'MainController'
             }).otherwise({
                 redirectTo: '/home'
