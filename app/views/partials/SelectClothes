@@ -1,0 +1,72 @@
+ <!-- SelectClothes: search box & dropdown menu & clothes list-->
+                <div class="col-lg-9" id="selectDishView">
+                    <div class="main">
+
+                        <div class="row">
+                            <!-- Search box -->
+                            <div class="col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter key words" id="searchField">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Search</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown menu -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">Choose style</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li id="appetizerChoice"><a href="#">Casual</a></li>
+                                    <li id="maindishChoice"><a href="#">Sports</a></li>
+                                    <li id="dessertChoice"><a href="#">Dress</a></li>
+                                </ul>
+                            </div>                      
+                        </div>
+                        
+                        <!-- Clothes list -->
+                        <div class="ClothesView">
+                            <ul>
+                                <li>
+                                <br/><br/>
+                                <img src="/Users/lianganlin/Desktop/project/images/1.jpeg">
+                                <br/><span> new arrival</span> 
+                                <br/> <span> 50 £ </span>
+                                </li>
+
+                                <li>
+                                <br/><br/>
+                                <img src="/Users/lianganlin/Desktop/project/images/2.jpeg">
+                                <br/><span> new arrival</span> 
+                                <br/> <span> 60 £ </span>
+                                </li>
+
+                                <li>
+                                <br/><br/>
+                                <img src="/Users/lianganlin/Desktop/project/images/3.jpeg">
+                                <br/><span> new arrival</span> 
+                                <br/> <span> 70 £ </span>
+                                </li>
+
+                                <li>
+                                <br/><br/>
+                                <img src="/Users/lianganlin/Desktop/project/images/4.jpeg">
+                                <br/><span> new arrival</span> 
+                                <br/> <span> 80 £ </span>
+                                </li>   
+                            </ul>
+
+                         </div>
+
+                        <!-- Loading message -->
+                        <div class="loadingMsg">
+                        <!-- Loaded with JavaScript-->
+                        </div>
+
+                    </div>
+                </div>
+                <!-- SelectClothes END--> 
