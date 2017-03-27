@@ -1,0 +1,38 @@
+<!-- ShoppingcartView-->
+                <div class="col-lg-12" id="sideBarView">
+                    <div class="aside" >
+                        <p>My Shoppingcart</p>
+
+                        <div class="row nameAndCost">
+                            
+                            <div class="col-lg-6">
+                                <p>Clothes</p>
+                            </div>
+
+                            <div id="numberofclothes">
+                                <p>Number</p>
+                            </div>
+                            
+                            <div id="cost">
+                                <p>Price</p>
+                            </div>
+
+                        </div>
+
+                        <div class="row nameAndCostEntry">
+                           
+                        </div>
+
+                        <div class="row nameAndCostTotal">
+                            <div class="col-lg-6">
+                                <p>Total</p>
+                            </div>
+                           
+                        </div>
+
+                        <div id="confirmDinnerButton">
+                            <button id="confirmDinner" class="btn">Confirm & Pay</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ShoppingcartView END-->
