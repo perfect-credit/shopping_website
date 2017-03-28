@@ -1,4 +1,4 @@
-
+<ng-include src="'/app/views/partials/Sidebar.html'" ng-controller="MainController"></ng-include>
 <div class="col-lg-9" ng-controller="MainController"><!--id="selectClothesView"-->
     <div class="main">
         
@@ -26,40 +26,6 @@
                     <li id="dessertChoice"><a href="#">Dress</a></li>
                 </ul>
             </div>                      
-        </div>
-        
-        <!-- Clothes list -->
-        <div class="ClothesView">
-            <ul>
-                <li ng-repeat="article in searchResults">
-                    <br/><br/>
-                    <img src="/Users/lianganlin/Desktop/project/images/1.jpeg">
-                    <br/><span> new arrival</span> 
-                    <br/><span> 50 £ </span>
-                </li>
-                
-                <li>
-                    <br/><br/>
-                    <img src="/Users/lianganlin/Desktop/project/images/2.jpeg">
-                    <br/><span> new arrival</span> 
-                    <br/> <span> 60 £ </span>
-                </li>
-                
-                <li>
-                    <br/><br/>
-                    <img src="/Users/lianganlin/Desktop/project/images/3.jpeg">
-                    <br/><span> new arrival</span> 
-                    <br/> <span> 70 £ </span>
-                </li>
-                
-                <li>
-                    <br/><br/>
-                    <img src="/Users/lianganlin/Desktop/project/images/4.jpeg">
-                    <br/><span> new arrival</span> 
-                    <br/> <span> 80 £ </span>
-                </li>   
-            </ul>
-            
         </div>
         
         <!-- Loading message -->

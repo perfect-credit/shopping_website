@@ -46,13 +46,14 @@ http.createServer(function(request, response) {
         
         
         if(validPath){
-        try {
-            content = fs.readFileSync(appPath + filePath);
-            responseCode=200;
-        } catch (error) {
-            responseCode = 404;
-            content = '404 Not Found!';
-        }}
+            try {
+                content = fs.readFileSync(appPath + filePath);
+                responseCode=200;
+            } catch (error) {
+                responseCode = 404;
+                content = '404 Not Found!';
+            }
+        }
         
     } else {
         
