@@ -182,11 +182,36 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
             
         }
         
-        
-        
         ShoppingModel.SearchArticles.get(params,function(data){
             $scope.searchResults = data.content;
             
+            var unit;
+            for (var i = 0 ; i < $scope.searchResults.length ; i++) {
+                if ('size' in params) {
+                    var units = $scope.searchResults[i].units;
+                    for (var j = 0 ; j < units.length ; j++) {
+                        if (isLetterSize(units[j].size)) {
+                            if (units[j].size === params.size) {
+                                unit = JSON.parse(JSON.stringify(units[j]));
+                                delete unit.id;
+                                $scope.searchResults[i].unit = unit;
+                                break;
+                            }
+                        } else {
+                            if (sizeNumberToLetter(parseInt(units[j].size)) === params.size) {
+                                unit = JSON.parse(JSON.stringify(units[j]));
+                                delete unit.id;
+                                $scope.searchResults[i].unit = unit;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    unit = JSON.parse(JSON.stringify($scope.searchResults[i].units[0]));
+                    delete unit.id;
+                    $scope.searchResults[i].unit = unit;
+                }
+            }
         });
         
     };
@@ -207,8 +232,40 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
     
     $scope.temp= function(id){
         ShoppingModel.Article.get({id:id}, function(data){
-            $scope.searchResults.push(data);;
+            $scope.searchResults.push(data);
         });
     };
     
 });
+
+const SIZES = {
+    XXS: '-4',
+    XS: '-6',
+    S: '8-10',
+    M: '12-14',
+    L: '16-18',
+    XL: '20-22',
+    XXL: '24-'
+};
+
+function sizeLetterToNumber(letter) {
+    var bounds = SIZES[letter].split('-');
+    return (bounds[0] === '') ? bounds[1] : bounds[0];
+}
+
+function sizeNumberToLetter(number) {
+    for (var size in SIZES) {
+        var bounds = SIZES[size].split('-')/*.map(function(n) { return parseInt(n); })*/;
+        if (((bounds[0] === '') && (number <= parseInt(bounds[1]))) ||
+            ((bounds[1] === '') && (number >= parseInt(bounds[0]))) ||
+                ((bounds[0] !== '') && (bounds[1] !== '') &&
+                    (number >= parseInt(bounds[0])) && (number <= parseInt(bounds[1])))) {
+            return size;
+        }
+    }
+}
+
+function isLetterSize(size) {
+    return ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].indexOf(size) > -1;
+}
+

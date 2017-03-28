@@ -33,12 +33,12 @@
             <ul>
                 <li ng-repeat="article in searchResults">
                     <br/><br/>
-                    <img src="/Users/lianganlin/Desktop/project/images/1.jpeg">
-                    <br/><span> new arrival</span> 
-                    <br/><span> 50 £ </span>
+                    <img src="{{ article.media.images[0].mediumHdUrl }}">
+                    <!--<br/><span> new arrival</span>-->
+                    <br/><span>{{ article.unit.price.formatted }}</span>
                 </li>
                 
-                <li>
+                <!--<li>
                     <br/><br/>
                     <img src="/Users/lianganlin/Desktop/project/images/2.jpeg">
                     <br/><span> new arrival</span> 
@@ -57,7 +57,7 @@
                     <img src="/Users/lianganlin/Desktop/project/images/4.jpeg">
                     <br/><span> new arrival</span> 
                     <br/> <span> 80 £ </span>
-                </li>   
+                </li>   -->
             </ul>
             
         </div>
