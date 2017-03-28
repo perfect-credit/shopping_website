@@ -6,26 +6,20 @@
             <!-- Search box -->
             <div class="col-lg-3">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter key words" id="searchField">
+                    <input ng-model="searchQuery" type="text" class="form-control" placeholder="Enter key words" >
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Search</button>
+                        <button class="btn btn-default" type="button" ng-click="searchForArticles(searchQuery,20)">Search</button>
                     </span>
                 </div>
             </div>
             
             <!-- Dropdown menu -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-default">Choose style</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li id="appetizerChoice"><a href="#">Casual</a></li>
-                    <li id="maindishChoice"><a href="#">Sports</a></li>
-                    <li id="dessertChoice"><a href="#">Dress</a></li>
-                </ul>
-            </div>                      
+            
+            
+            <select class="form-control" style="width:auto;" ng-model="selectedCategory">
+                <option ng-repeat="option in categories" value="{{option.key}}">{{option.name}}</option>
+            </select>
+            
         </div>
         
         <!-- Clothes list -->
@@ -33,7 +27,7 @@
             <ul>
                 <li ng-repeat="article in searchResults">
                     <br/><br/>
-                    <img src="{{ article.media.images[0].mediumHdUrl }}">
+                    <img ng-src="{{ article.media.images[0].mediumHdUrl }}">
                     <!--<br/><span> new arrival</span>-->
                     <br/><span>{{ article.unit.price.formatted }}</span>
                 </li>

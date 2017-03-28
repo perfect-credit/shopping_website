@@ -149,6 +149,49 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
             ]
         }
     ];
+    $scope.categories = [
+        {
+            name: 'Dresses',
+            key: 'womens-clothing-dresses'
+        },
+        {
+            name: 'Tops & T-Shirts',
+            key: 'womens-clothing-tops'
+        },
+        {
+            name: 'Jeans',
+            key: 'womens-clothing-jeans'
+        },
+        {
+            name: 'Jackets',
+            key: 'womens-clothing-jackets'
+        },
+        {
+            name: 'Coats',
+            key: 'womens-clothing-coats'
+        },
+        {
+            name: 'Trousers & Shorts',
+            key: 'womens-clothing-trousers-leggings'
+        },
+        {
+            name: 'Blouses & Tunics',
+            key: 'womens-clothing-blouses-tunics'
+        },
+        {
+            name: 'Skirts',
+            key: 'womens-clothing-skirts'
+        },
+        {
+            name: 'Lingerie & Nightwear',
+            key: 'womens-clothing-lingerie-nightwear'
+        },
+        {
+            name: 'Tights & Socks',
+            key: 'womens-clothing-tights-socks'
+        }
+    ];
+    $scope.selectedCategory = '';
     
     $scope.searchResults = [];
     $scope.randomArticles = [];
