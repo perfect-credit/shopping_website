@@ -1,6 +1,41 @@
 
 shoppingApp.controller('MainController', function($scope, ShoppingModel){
     
+    
+    
+    const SIZES = {
+    XXS: '-4',
+    XS: '-6',
+    S: '8-10',
+    M: '12-14',
+    L: '16-18',
+    XL: '20-22',
+    XXL: '24-'
+};
+
+function sizeLetterToNumber(letter) {
+    var bounds = SIZES[letter].split('-');
+    return (bounds[0] === '') ? bounds[1] : bounds[0];
+}
+
+function sizeNumberToLetter(number) {
+    for (var size in SIZES) {
+        var bounds = SIZES[size].split('-')/*.map(function(n) { return parseInt(n); })*/;
+        if (((bounds[0] === '') && (number <= parseInt(bounds[1]))) ||
+            ((bounds[1] === '') && (number >= parseInt(bounds[0]))) ||
+                ((bounds[0] !== '') && (bounds[1] !== '') &&
+                    (number >= parseInt(bounds[0])) && (number <= parseInt(bounds[1])))) {
+            return size;
+        }
+    }
+}
+
+function isLetterSize(size) {
+    return ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].indexOf(size) > -1;
+}
+
+
+    
     // Filters
     $scope.filters = [
         {
@@ -201,6 +236,14 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
             pageSize: resultsCount,
             fullText: searchString
         };
+        if($scope.selectedCategory===""){
+            //params.category= $scope.categories.map(function(category){return category.key;});
+        }else{
+            params.category=$scope.selectedCategory;
+        }
+        console.log(params);
+        console.log(searchString);
+        
         for(var i=0; i<$scope.filters.lenght;i++){
             var filter= $scope.filters[i];
             var firstTime= true;
@@ -280,35 +323,4 @@ shoppingApp.controller('MainController', function($scope, ShoppingModel){
     };
     
 });
-
-const SIZES = {
-    XXS: '-4',
-    XS: '-6',
-    S: '8-10',
-    M: '12-14',
-    L: '16-18',
-    XL: '20-22',
-    XXL: '24-'
-};
-
-function sizeLetterToNumber(letter) {
-    var bounds = SIZES[letter].split('-');
-    return (bounds[0] === '') ? bounds[1] : bounds[0];
-}
-
-function sizeNumberToLetter(number) {
-    for (var size in SIZES) {
-        var bounds = SIZES[size].split('-')/*.map(function(n) { return parseInt(n); })*/;
-        if (((bounds[0] === '') && (number <= parseInt(bounds[1]))) ||
-            ((bounds[1] === '') && (number >= parseInt(bounds[0]))) ||
-                ((bounds[0] !== '') && (bounds[1] !== '') &&
-                    (number >= parseInt(bounds[0])) && (number <= parseInt(bounds[1])))) {
-            return size;
-        }
-    }
-}
-
-function isLetterSize(size) {
-    return ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'].indexOf(size) > -1;
-}
 
