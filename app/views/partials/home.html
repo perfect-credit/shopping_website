@@ -26,10 +26,11 @@
         <div class="ClothesView">
             <ul>
                 <li ng-repeat="article in searchResults">
-                    <br/><br/>
-                    <img ng-src="{{ article.media.images[0].mediumHdUrl }}">
-                    <!--<br/><span> new arrival</span>-->
-                    <br/><span>{{ article.unit.price.formatted }}</span>
+                    <a ng-href="#!/article/{{ article.id }}">
+                        <img ng-src="{{ article.media.images[0].mediumHdUrl }}">
+                        <!--<br/><span> new arrival</span>-->
+                        <p>{{ article.unit.price.formatted }}</p>
+                    </a>
                 </li>
                 
                 <!--<li>
